@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #d5feb3;
+            padding: 20px;
+            margin-top: 200px;
+        }
+        .container {
+            background: rgb(85, 109, 122);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+        input, button {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #396644;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        button:hover {
+            background-color: #109f2f;
+        }
+        .password-box {
+            background: #eee;
+            padding: 10px;
+            margin-top: 10px;
+            word-break: break-all;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Password Generator</h2>
+        <form method="POST">
+            <label>Minimum Length:</label>
+            <input type="number" name="min_length" min="4" required>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" name="has_number">
+                <label>Include Numbers</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" name="has_special">
+                <label>Include Special Characters</label>
+            </div>
+
+            <button type="submit">Generate Password</button>
+        </form>
+
+        {% if password %}
+            <div class="password-box">
+                <strong>Generated Password:</strong>
+                <p>{{ password }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
